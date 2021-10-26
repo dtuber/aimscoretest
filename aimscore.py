@@ -47,13 +47,12 @@ print('Jitter: ', dict['rtt_mdev'])
 # RPKI support
 try:
   rpki = get('https://invalid.rpki.cloudflare.com', timeout=(5, None))
+  if rpki.status_code == 200:
+      print('RPKI Support: false')
+  else: print('RPKI Support: true')
 except requests.exceptions.Timeout as e:
   print('RPKI Support: true')
 
-
-if rpki.status_code == 200:
-    print('RPKI Support: false')
-else: print('RPKI Support: true')
 
 test_uuid = uuid.uuid1()
 try:
