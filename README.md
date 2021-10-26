@@ -6,7 +6,6 @@ To run this, you will need the following packages:
 * speedtest-cli
 * cymruwhois
 * requests
-* json
 * pingparsing
 * uuid
 
