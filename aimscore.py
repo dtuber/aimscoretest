@@ -45,7 +45,11 @@ print('Packet Loss: ',dict['packet_loss_rate'])
 print('Jitter: ', dict['rtt_mdev'])
 
 # RPKI support
-rpki = get('https://invalid.rpki.cloudflare.com')
+try:
+  rpki = get('https://invalid.rpki.cloudflare.com', timeout=(5, None))
+except requests.exceptions.Timeout as e:
+  print('RPKI Support: true')
+
 
 if rpki.status_code == 200:
     print('RPKI Support: false')
