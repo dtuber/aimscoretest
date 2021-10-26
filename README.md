@@ -6,9 +6,10 @@ To run this, you will need the following packages:
 * speedtest-cli
 * cymruwhois
 * requests
-* json
 * pingparsing
 * uuid
 
-these can be easily installed using pip on any machine
+these can be easily installed using pip on any machine:
+
+pip install -r requirements.txt
 
