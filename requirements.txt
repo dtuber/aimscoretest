@@ -1,0 +1,5 @@
+speedtest-cli
+cymruwhois
+requests
+pingparsing
+uuid
