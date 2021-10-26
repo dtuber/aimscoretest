@@ -19,14 +19,15 @@ print('asn number: ',r.asn)
 print('asn owner : ',r.owner)
 
 st = speedtest.Speedtest()
-# get download stats
-print('Download Throughput: ',(st.download()/1e6))
+st.get_best_server()
+
+# get download stats - threads=8 is not scientific but anecdata shows good results
+print('Download Throughput: ',(st.download(threads=8)/1e6))
 
 # get upload stats
-print('Upload Throughput: ',(st.upload()/1e6))
+print('Upload Throughput: ',(st.upload(threads=8)/1e6))
 
 # get ping stats
-st.get_best_server()
 print('RTT: ',st.results.ping)
 
 # perform a ping test to get loss rate and jitter
