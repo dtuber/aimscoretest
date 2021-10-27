@@ -50,8 +50,12 @@ try:
   if rpki.status_code == 200:
       print('RPKI Support: false')
   else: print('RPKI Support: true')
-except requests.exceptions.Timeout as e:
+except requests.exceptions.ConnectionError:
   print('RPKI Support: true')
+except requests.exceptions.Timeout:
+   print('RPKI Support: true')
+except Exception as e:
+   print('RPKI Support: unknown: {}'.format(e.message))
 
 
 test_uuid = uuid.uuid1()
